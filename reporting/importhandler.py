@@ -25,7 +25,9 @@ import reporting.tikapi as tikapi
 import reporting.amzapi as amzapi
 import reporting.criapi as criapi
 import reporting.pmapi as pmapi
+import reporting.samapi as samapi
 import reporting.gsapi as gsapi
+import reporting.qtapi as qtapi
 import reporting.ftp as ftp
 import reporting.awss3 as awss3
 import reporting.afapi as afapi
@@ -163,7 +165,9 @@ class ImportHandler(object):
                 ('amz', self.matrix.api_amz_key, amzapi.AmzApi),
                 ('cri', self.matrix.api_cri_key, criapi.CriApi),
                 ('pm', self.matrix.api_pm_key, pmapi.PmApi),
-                ('gs', self.matrix.api_gs_key, gsapi.GsApi)]
+                ('sam', self.matrix.api_sam_key, samapi.SamApi),
+                ('gs', self.matrix.api_gs_key, gsapi.GsApi),
+                ('qt', self.matrix.api_qt_key, qtapi.QtApi)]
         for api in apis:
             if self.arg_check(api[0]) and api[1]:
                 self.api_calls(api[1], api[2]())
